@@ -21,7 +21,16 @@ public class VPAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        return fragmentArrayList.get(position);
+        switch (position){
+            case 0:
+                return new Fragment1();
+            case 1:
+                return new Fragment2();
+            case 2:
+                return new Fragment3();
+            default:
+                return null;
+        }
     }
 
     @Override

@@ -10,6 +10,7 @@ import com.google.android.material.tabs.TabLayout;
 public class MainActivity extends AppCompatActivity {
 private  TabLayout tabLayout;
 private ViewPager viewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,10 +20,14 @@ private ViewPager viewPager;
         viewPager = findViewById(R.id.viewpager);
         tabLayout.setupWithViewPager(viewPager);
         VPAdapter vpAdapter=new VPAdapter(getSupportFragmentManager());
-        vpAdapter.addFragment(new Fragment(),"chats");
-        vpAdapter.addFragment(new Fragment(),"status");
-        vpAdapter.addFragment(new Fragment(),"calls");
+        vpAdapter.addFragment(new Fragment1(),"chats");
+        vpAdapter.addFragment(new Fragment2(),"status");
+        vpAdapter.addFragment(new Fragment3(),"calls");
         viewPager.setAdapter(vpAdapter);
+        int desiredFragmentPosition =2;
+        tabLayout.setScrollPosition(desiredFragmentPosition,0f,true);
+        viewPager.setCurrentItem(desiredFragmentPosition);
+
 
     }
 }
